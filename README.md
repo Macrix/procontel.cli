@@ -21,24 +21,21 @@ The ProconTelCli  makes it easy to create and manage a ProconTel ecosystem. It a
 To list available commands, either run ```.\ProconTelCli.exe``` with no parameters or execute ```.\ProconTelCLI.exe --help```
 
 ```csharp
-Manage endpoints running on ProconTEL server.
+ProconTelCLI is command line interface for managing ProconTEL server. THIS IS AN ALPHA RELEASE, YOU ARE USING IT AT YOUR OWN RISK.
 
-Usage: procontelCLI endpoint [options] [command]
+Usage: procontelCLI [options] [command]
 
 Options:
   -?|-h|--help  Show help information
 
 Commands:
-  activate      Activate endpoint running on ProconTEL server.
-  config        Configuration of endpoints running on ProconTEL server.
-  deactivate    Deactivate endpoint running on ProconTEL server.
-  delete        Deletes endpoint from specified container.
-  describe      Get details about endpoint running on ProconTEL server.
-  list          List endpoints running on ProconTEL server.
-  new           Creates endpoint in specified container.
-  params        Parameters of endpoints running on ProconTEL server.
+  container     Manage containers (channel or pools) running on ProconTEL server.
+  endpoint      Manage endpoints running on ProconTEL server.
+  import        Import PEX file.
+  plugin        Manage plugins installed on ProconTEL server.
+  workspace     Manage workspaces running on ProconTEL server.
 
-Run 'endpoint [command] --help' for more information about a command.
+Run 'procontelCLI [command] --help' for more information about a command.
 ```
 
 <div id='id-container-commands'/>
