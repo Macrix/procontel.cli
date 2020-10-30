@@ -46,11 +46,17 @@ Run 'procontelCLI [command] --help' for more information about a command.
 <div id='id-endpoint-commands'/>
 
 ## 4. Endpoint commands
-Table with base commands description.
-| Commands | Description  | 
-| :---:  |:---:|
-| .\ProconTelCli endpoint list | Display list of endpoint running on connected ProconTel version.  |
 
+| Commands | Description  | 
+| :---  |:---|
+| .\ProconTelCli endpoint list -s localhost:9000 --force-tcp | Display list of endpoint running on connected ProconTel version.  |
+| .\ProconTelCLI.exe endpoint params __ENDPOINT_NAME__ -s localhost:9000 --force-tcp |  Display endpoint parameters. |
+| .\ProconTelCLI.exe endpoint params __ENDPOINT_NAME__ -u="ActsAsProvider=true" -s localhost:9000 --force-tcp |  Update endpoint parameter ActsAsProvider to ```true```. |
+| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -s localhost:9000 --force-tcp |   Display internal endpoint configuration. |
+| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -u="CONFIGURATION_VALUE" -s localhost:9000 --force-tcp |   Update internal endpoint configuration to ```CONFIGURATION_VALUE```. |
+| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -f="C:\configuration.txt" -s localhost:9000 --force-tcp |   Load internal endpoint configuration from local file ```C:\configuration.txt```. |
+| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -r-xml="PluginConfiguration/MethodName=NEW_VALUE" -s localhost:9000 --force-tcp |   Replace xml internal endpoint configuration property. |
+| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -r-json="PluginConfiguration.MethodName=NEW_VALUE" -s localhost:9000 --force-tcp |   Replace json internal endpoint configuration property. |
 <div id='id-import-commands'/>
 
 ## 5. Import commands
