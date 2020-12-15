@@ -41,22 +41,77 @@ Run 'procontelCLI [command] --help' for more information about a command.
 <div id='id-container-commands'/>
 
 ## 3. Container commands
-*Chapter in build*
 
+Create a pool called TestPool in workspace TestWorkspace.
+```csharp
+.\procontecli.exe container new -p -w TestWorkspace TestPool
+```
+<br/>
+
+Create a channel called TestChannel in workspace TestWorkspace.
+```csharp
+.\procontecli.exe container new -w TestWorkspace TestChannel
+```
+to be continued...
 <div id='id-endpoint-commands'/>
 
 ## 4. Endpoint commands
 
-| Commands | Description  | 
-| :---  |:---|
-| .\ProconTelCli endpoint list -s localhost:9000 --force-tcp | Display list of endpoint running on connected ProconTel version.  |
-| .\ProconTelCLI.exe endpoint params __ENDPOINT_NAME__ -s localhost:9000 --force-tcp |  Display endpoint parameters. |
-| .\ProconTelCLI.exe endpoint params __ENDPOINT_NAME__ -u="ActsAsProvider=true" -s localhost:9000 --force-tcp |  Update endpoint parameter ActsAsProvider to ```true```. |
-| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -s localhost:9000 --force-tcp |   Display internal endpoint configuration. |
-| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -u="CONFIGURATION_VALUE" -s localhost:9000 --force-tcp |   Update internal endpoint configuration to ```CONFIGURATION_VALUE```. |
-| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -f="C:\configuration.txt" -s localhost:9000 --force-tcp |   Load internal endpoint configuration from local file ```C:\configuration.txt```. |
-| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -r-xml="PluginConfiguration/MethodName=NEW_VALUE" -s localhost:9000 --force-tcp |   Replace xml internal endpoint configuration property. |
-| .\ProconTelCLI.exe endpoint config __ENDPOINT_NAME__ -r-json="PluginConfiguration.MethodName=NEW_VALUE" -s localhost:9000 --force-tcp |   Replace json internal endpoint configuration property. |
+Create new endpoint called TestEndpoint in the channel called TestChannel from TestPlugin plugin on localhost
+```csharp
+.\procontecli.exe endpoint new -c TestChannel -p TestPlugin.Endpoint@TestPlugin -s localhost
+```
+One remark: this: <b>TestPlugin.Endpoint@TestPlugin</b> hopefully will be replaced by something better in the newer version of ProcontelCLI. It's built as namespace of endpoint class @ name of plugin.
+
+<br/>
+
+Display list of endpoint running on connected ProconTel version.
+```csharp
+.\procontecli.exe endpoint list -s localhost:9000
+```
+<br/>
+
+Display parameters of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint params TestEndpoint -s localhost:9000
+```
+<br/>
+
+Update parameter ActsAsProvider to ```true``` of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint params TestEndpoint -u="ActsAsProvider=true" -s localhost:9000
+```
+<br/>
+
+Display internal configuration of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint config TestEndpoint -s localhost:9000
+```
+<br/>
+
+Update internal configuration to ```CONFIGURATION_VALUE``` of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint config TestEndpoint -u="CONFIGURATION_VALUE" -s localhost:9000
+```
+<br/>
+
+Load internal configuration from local file ```C:\configuration.txt``` of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint config TestEndpoint -f="C:\configuration.txt" -s localhost:9000
+```
+<br/>
+
+Replace xml internal configuration property of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint config TestEndpoint -r-xml="PluginConfiguration/MethodName=NEW_VALUE" -s localhost:9000
+```
+<br/>
+
+Replace json internal configuration property of endpoint called TestEndpoint.
+```csharp
+.\procontecli.exe endpoint config TestEndpoint -r-json="PluginConfiguration.MethodName=NEW_VALUE" -s localhost:9000
+```
+
 <div id='id-import-commands'/>
 
 ## 5. Import commands
@@ -65,9 +120,25 @@ Run 'procontelCLI [command] --help' for more information about a command.
 <div id='id-plugin-commands'/>
 
 ## 6. Plugin commands
-*Chapter in build*
+Install plugin called Test Plugin 
+```csharp
+.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll
+```
+<br/>
+
+Install plugin called Test Plugin with dependent an additional dll binaries 
+```csharp
+.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R
+```
+<br/>
 
 <div id='id-workspace-commands'/>
 
 ## 7. Workspace commands
-*Chapter in build*
+Create new workspace called TestWorkspace
+```csharp
+.\procontecli.exe workspace new TestWorkspace
+```
+<br/>
+
+to be continued...
