@@ -130,6 +130,15 @@ Install plugin called Test Plugin with dependent an additional dll binaries
 ```csharp
 .\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R
 ```
+Where 'R' is a flag to search for defined files recursively in mentioned path.
+
+</br>
+
+Install plugin called Test Plugin with dependent an additional dll binaries from two directories
+(additional directories require adding next -f parameter)
+```csharp
+.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R -f D:\SampleProject\additionalLibs\|*.dll||R
+```
 <br/>
 
 <div id='id-workspace-commands'/>
