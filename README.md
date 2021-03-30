@@ -44,13 +44,13 @@ Run 'procontelCLI [command] --help' for more information about a command.
 
 Create a pool called TestPool in workspace TestWorkspace.
 ```csharp
-.\procontecli.exe container new -p -w TestWorkspace TestPool
+.\procontelcli.exe container new -p -w TestWorkspace TestPool
 ```
 <br/>
 
 Create a channel called TestChannel in workspace TestWorkspace.
 ```csharp
-.\procontecli.exe container new -w TestWorkspace TestChannel
+.\procontelcli.exe container new -w TestWorkspace TestChannel
 ```
 to be continued...
 <div id='id-endpoint-commands'/>
@@ -59,7 +59,7 @@ to be continued...
 
 Create new endpoint called TestEndpoint in the channel called TestChannel from TestPlugin plugin on localhost
 ```csharp
-.\procontecli.exe endpoint new -c TestChannel -p TestPlugin.Endpoint@TestPlugin -s localhost
+.\procontelcli.exe endpoint new -c TestChannel -p TestPlugin.Endpoint@TestPlugin -s localhost
 ```
 One remark: this: <b>TestPlugin.Endpoint@TestPlugin</b> hopefully will be replaced by something better in the newer version of ProcontelCLI. It's built as namespace of endpoint class @ name of plugin.
 
@@ -67,49 +67,49 @@ One remark: this: <b>TestPlugin.Endpoint@TestPlugin</b> hopefully will be replac
 
 Display list of endpoint running on connected ProconTel version.
 ```csharp
-.\procontecli.exe endpoint list -s localhost:9000
+.\procontelcli.exe endpoint list -s localhost:9000
 ```
 <br/>
 
 Display parameters of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint params TestEndpoint -s localhost:9000
+.\procontelcli.exe endpoint params TestEndpoint -s localhost:9000
 ```
 <br/>
 
 Update parameter ActsAsProvider to ```true``` of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint params TestEndpoint -u="ActsAsProvider=true" -s localhost:9000
+.\procontelcli.exe endpoint params TestEndpoint -u="ActsAsProvider=true" -s localhost:9000
 ```
 <br/>
 
 Display internal configuration of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint config TestEndpoint -s localhost:9000
+.\procontelcli.exe endpoint config TestEndpoint -s localhost:9000
 ```
 <br/>
 
 Update internal configuration to ```CONFIGURATION_VALUE``` of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint config TestEndpoint -u="CONFIGURATION_VALUE" -s localhost:9000
+.\procontelcli.exe endpoint config TestEndpoint -u="CONFIGURATION_VALUE" -s localhost:9000
 ```
 <br/>
 
 Load internal configuration from local file ```C:\configuration.txt``` of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint config TestEndpoint -f="C:\configuration.txt" -s localhost:9000
+.\procontelcli.exe endpoint config TestEndpoint -f="C:\configuration.txt" -s localhost:9000
 ```
 <br/>
 
 Replace xml internal configuration property of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint config TestEndpoint -r-xml="PluginConfiguration/MethodName=NEW_VALUE" -s localhost:9000
+.\procontelcli.exe endpoint config TestEndpoint -r-xml="PluginConfiguration/MethodName=NEW_VALUE" -s localhost:9000
 ```
 <br/>
 
 Replace json internal configuration property of endpoint called TestEndpoint.
 ```csharp
-.\procontecli.exe endpoint config TestEndpoint -r-json="PluginConfiguration.MethodName=NEW_VALUE" -s localhost:9000
+.\procontelcli.exe endpoint config TestEndpoint -r-json="PluginConfiguration.MethodName=NEW_VALUE" -s localhost:9000
 ```
 
 <div id='id-import-commands'/>
@@ -122,13 +122,13 @@ Replace json internal configuration property of endpoint called TestEndpoint.
 ## 6. Plugin commands
 Install plugin called Test Plugin 
 ```csharp
-.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll
+.\procontelcli.exe plugin install D:\SampleProject\TestPlugin.dll
 ```
 <br/>
 
 Install plugin called Test Plugin with dependent an additional dll binaries 
 ```csharp
-.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R
+.\procontelcli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R
 ```
 Where 'R' is a flag to search for defined files recursively in mentioned path.
 
@@ -137,16 +137,26 @@ Where 'R' is a flag to search for defined files recursively in mentioned path.
 Install plugin called Test Plugin with dependent an additional dll binaries from two directories
 (additional directories require adding next -f parameter)
 ```csharp
-.\procontecli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R -f D:\SampleProject\additionalLibs\|*.dll||R
+.\procontelcli.exe plugin install D:\SampleProject\TestPlugin.dll -f D:\SampleProject\contrib\|*.dll||R -f D:\SampleProject\additionalLibs\|*.dll||R
 ```
 <br/>
+
+Get information about installed plugin
+```csharp
+.\ProconTelCLI.exe plugin describe ExampleTelegramEndpoint
+Plugin:
+  FullName: ExampleTelegramEndpoint, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  Version: 1.0.0.0
+  UpdateDate: 2021-03-23 12:33:59
+  InstallDate: 2021-03-19 09:41:45
+```
 
 <div id='id-workspace-commands'/>
 
 ## 7. Workspace commands
 Create new workspace called TestWorkspace
 ```csharp
-.\procontecli.exe workspace new TestWorkspace
+.\procontelcli.exe workspace new TestWorkspace
 ```
 <br/>
 
