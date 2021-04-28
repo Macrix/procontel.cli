@@ -1,3 +1,10 @@
+---
+Title: "ProconTEL CLI"
+Weight: 8
+Description: >
+  Learn how to use the ProconTEL CLI - [Edit this page](https://github.com/Macrix/procontel.cli/)
+---
+
 # Use the ProconTelCli.exe command line
 
 ## Table of Contents
