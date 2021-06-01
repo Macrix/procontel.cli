@@ -1,4 +1,10 @@
-# Use the ProconTelCli.exe command line
+---
+Title: "ProconTEL CLI"
+github_url: "https://github.com/Macrix/procontel.cli/edit/main/README.md"
+Weight: 8
+Description: >
+  Use the ProconTelCli.exe command line
+---
 
 ## Table of Contents
 
