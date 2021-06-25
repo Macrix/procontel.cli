@@ -15,6 +15,7 @@ Description: >
 5. [Import commands](#id-import-commands)
 6. [Plugin commands](#id-plugin-commands)
 7. [Workspace commands](#id-workspace-commands)
+8. [Exit Codes](#id-exit-codes)
  
  <div id='id-quick-introduction'/>
 
@@ -164,6 +165,40 @@ Create new workspace called TestWorkspace
 ```csharp
 .\procontelcli.exe workspace new TestWorkspace
 ```
+<br/>
+
+<div id='id-exit-codes'/>
+
+## 8. Exit codes
+
+Global exit codes
+| Exit Code | Description |
+| :---: | :---: |
+| 0 | Success |
+| 1 | Incorrect Command |
+| 2 | Command Failure |
+
+<br/>
+Specific exit codes and description
+
+| Exit Code | Description |
+| :---: | :---: |
+| 100 | Endpoint deos not exist |
+| 101 | Container does not exist |
+| 102 | Workspace does not exist |
+| 103 | Plugin does not exist |
+| 104 | Dependency does not exist |
+| 105 | Destination container already contain avatar of selected endpoint |
+| 106 | Destination container cannot be pool |
+| 107 | Container is active |
+| 108 | No avatar in container |
+| 109 | No endpoint in container |
+| 110 | Transfering plugin files failed |
+| 111 | Upgrading plugin failed |
+| 112 | Plugin validation failed |
+| 113 | Pool cannot contain avatar |
+| 114 | Wrong container type |
+
 <br/>
 
 to be continued...
