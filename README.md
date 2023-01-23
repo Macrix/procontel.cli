@@ -14,9 +14,15 @@ Description: >
 4. [Endpoint commands](#id-endpoint-commands)
 5. [Import commands](#id-import-commands)
 6. [Plugin commands](#id-plugin-commands)
+	* [Installation of new plugin](#id-plugin-commands-install)
+	* [Upgrading existing plugin](#id-plugin-commands-upgrade)
 7. [Workspace commands](#id-workspace-commands)
-8. [Exit Codes](#id-exit-codes)
+8. [Secure connection](#id-secure-connection)
+9. [Exit Codes](#id-exit-codes)
  
+
+1.1 List item
+List item
  <div id='id-quick-introduction'/>
 
 ## 1. Quick introduction
@@ -127,6 +133,10 @@ Replace json internal configuration property of endpoint called TestEndpoint.
 <div id='id-plugin-commands'/>
 
 ## 6. Plugin commands
+
+<div id='id-plugin-commands-install'/>
+
+### Installation of new plugin
 Install plugin called Test Plugin 
 ```csharp
 .\procontelcli.exe plugin install D:\SampleProject\TestPlugin.dll
@@ -158,6 +168,29 @@ Plugin:
   InstallDate: 2021-03-19 09:41:45
 ```
 
+
+<div id='id-plugin-commands-upgrade'/>
+
+### Upgrading existing plugin
+There is also possibillity to upgrade existing, already installed, plugins by using command
+```
+.\ProconTelCLI.exe plugin upgrade PluginName
+```
+ or even few plugins at the same time
+ ```
+.\ProconTelCLI.exe plugin upgrade PluginName AnotherPluginName AdditionalPluginName
+```
+
+There is also option to upgrade all installed plugins in simple way:
+```
+.\ProconTelCLI.exe plugin upgrade *
+```
+The `*` character can be used only alone, i.e.
+```
+.\ProconTelCLI.exe plugin upgrade ExampleTelegramEndpoint *
+```
+is illegal, the `*` character will be filter out and only names will be processing.
+
 <div id='id-workspace-commands'/>
 
 ## 7. Workspace commands
@@ -167,9 +200,34 @@ Create new workspace called TestWorkspace
 ```
 <br/>
 
+
+
+<div id='id-secure-connection'/>
+
+## 8. Secure connection
+
+If the ProconTel is secured with password and/or certificate, the CLI is still able to work, but need some additional parameters to be set up. For example command below will not be executed if there are security features turned on:
+```
+.\ProconTelCLI.exe  container new exampleContainer 
+```
+
+but code below, with additional security parameters, will work fine 
+```
+.\ProconTelCLI.exe  container new exampleContainer --certificate client-certificate --certificateStorage TrustedPeople --password test 
+```
+
+There are 4 security parameters which can be used in CLI:
+1. `--certificate` - specify the name of certificate used to sign communication with ProconTel api
+2. `--certificateStorage` - specify the place where certificate is store, i.e. _Personal_, _TrustedPeople_...  
+3. `--revocationMode` - specify the revocation mode for secure communication, it supports following options _NoCheck_, _Online_, _Offline_ 
+4. `--password` - here is specified a password for establishing connection
+
+`--password` and three other parameters can be used separately i.e. in case when you have specified certificates only the password is not required. For establishing communication with server secured by certificate `--certificate` and `--certificateStorage` parameters are mandatrory, the `--revocationMode` is optional (by default is used _NoCheck_).
+
+
 <div id='id-exit-codes'/>
 
-## 8. Exit codes
+## 9. Exit codes
 
 Global exit codes
 | Exit Code | Description |
